@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #0a0a0f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    font-family: 'DM Sans', sans-serif;
+    overflow-y: auto;
+}
+
+/* ====================== BG SHAPES ====================== */
+.bg-shapes {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.15;
+}
+
+.shape-1 {
+    width: 500px;
+    height: 500px;
+    background: #6c63ff;
+    top: -100px;
+    left: -100px;
+}
+
+.shape-2 {
+    width: 400px;
+    height: 400px;
+    background: #ff6584;
+    bottom: -100px;
+    right: -100px;
+}
+
+.shape-3 {
+    width: 300px;
+    height: 300px;
+    background: #43e97b;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* ====================== CONTAINER ====================== */
+.container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 800px;
+}
+
+/* ====================== PROFIL KART ====================== */
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 48px 40px;
+    text-align: center;
+    position: relative;
+    animation: fadeUp 0.8s ease forwards;
+    margin-bottom: 24px;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.age-badge {
+    position: absolute;
+    top: -16px;
+    right: 24px;
+    background: linear-gradient(135deg, #6c63ff, #ff6584);
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #6c63ff, #ff6584);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.avatar span {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: white;
+    font-weight: 700;
+}
+
+.name {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: white;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.divider {
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, #6c63ff, #ff6584);
+    margin: 0 auto 24px;
+    border-radius: 2px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    gap: 8px;
+}
+
+.info-item {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 12px 8px;
+}
+
+.info-label {
+    display: block;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+}
+
+.info-value {
+    display: block;
+    font-size: 14px;
+    color: white;
+    font-weight: 500;
+}
+
+.tags {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background: rgba(108, 99, 255, 0.2);
+    border: 1px solid rgba(108, 99, 255, 0.4);
+    color: #a09cf7;
+    font-size: 12px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+/* ====================== STAT KARTLAR ====================== */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 16px;
+    text-align: center;
+}
+
+.stat-card .label {
+    display: block;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+}
+
+.stat-card .value {
+    display: block;
+    font-size: 22px;
+    font-weight: 600;
+    color: white;
+}
+
+.stat-card.income .value { color: #43e97b; }
+.stat-card.expense .value { color: #ff6584; }
+.stat-card.balance .value { color: #6c63ff; }
+
+/* ====================== FORMALAR ====================== */
+.forms {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.form-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.form-card h2 {
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 14px;
+}
+
+.form-card select,
+.form-card input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+.form-card select option {
+    background: #1a1a2e;
+    color: white;
+}
+
+.form-card select:focus,
+.form-card input:focus {
+    border-color: rgba(108, 99, 255, 0.5);
+}
+
+.form-card button {
+    width: 100%;
+    background: linear-gradient(135deg, #6c63ff, #ff6584);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 11px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.form-card button:hover {
+    opacity: 0.85;
+}
+
+/* ====================== TABLE ====================== */
+.table-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.table-card h2 {
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 14px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead th {
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 10px 14px;
+    text-align: left;
+}
+
+tbody tr {
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.06);
+    transition: background 0.2s;
+}
+
+tbody tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+tbody td {
+    padding: 12px 14px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+td.expense {
+    color: #ff6584;
+    font-weight: 600;
+}
+
+td.date {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 12px;
+}
+
+td.empty {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.25);
+    padding: 28px;
+}

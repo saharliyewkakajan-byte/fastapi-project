@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="tk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasap</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <!-- STAT KARTLAR -->
+    <div class="stats">
+        <div class="stat-card income">
+            <span class="label">Girdeýji</span>
+            <span class="value">{{ girdeyjy_jemi }} TMT</span>
+        </div>
+        <div class="stat-card expense">
+            <span class="label">Çykdaýjy</span>
+            <span class="value">{{ jemi }} TMT</span>
+        </div>
+        <div class="stat-card balance">
+            <span class="label">Galyndy</span>
+            <span class="value">{{ galyndy }} TMT</span>
+        </div>
+    </div>
+
+    <!-- FORMALAR -->
+    <div class="forms">
+
+        <!-- Çykdaýjy goşmak -->
+        <div class="form-card">
+            <h2>Çykdaýjy goş</h2>
+            <form action="/add_hereket" method="post">
+                <select name="sebap">
+                    <option value="">Sebap saýla...</option>
+                    <option value="Taksi">Taksi</option>
+                    <option value="CSGO">CSGO</option>
+                    <option value="Okuwda">Okuwda</option>
+                    <option value="Kursda">Kursda</option>
+                    <option value="Market sowda">Market sowda</option>
+                    <option value="Koshi shashlyk">Koshi shashlyk</option>
+                </select>
+                <input type="number" name="cykdayjy" placeholder="Çykdaýjy (TMT)" required />
+                <button type="submit">Goş</button>
+            </form>
+        </div>
+
+        <!-- Girdeýji goşmak -->
+        <div class="form-card">
+            <h2>Girdeýji goş</h2>
+            <form action="/add_income" method="post">
+                <input type="number" name="girdeyjy" placeholder="Girdeýji (TMT)" required />
+                <button type="submit">Goş</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- HEREKETLER SANAWY -->
+<div class="table-card">
+    <h2>Hereketler</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Sebap</th>
+                <th>Çykdaýjy</th>
+                <th>Senesi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for h in hereketler %}
+            <tr>
+                <td>{{ h[0] }}</td>
+                <td>{{ h[1] }}</td>
+                <td class="expense">{{ h[2] }} TMT</td>
+                <td class="date">{{ h[3].strftime('%d.%m.%Y %H:%M') }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="4" class="empty">Heniz hereket ýok</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="tk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="age-badge">{{ age }}</div>
+            <div class="avatar">
+                <span>{{ name[0] }}</span>
+            </div>
+            <h1 class="name">{{ name }}</h1>
+            <p class="subtitle">Programist okuwçy</p>
+            <div class="divider"></div>
+            <div class="info-row">
+                <div class="info-item">
+                    <span class="info-label">Ýaş</span>
+                    <span class="info-value">{{ age }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Ugur</span>
+                    <span class="info-value">Backend</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Dil</span>
+                    <span class="info-value">Python</span>
+                </div>
+            </div>
+            <div class="tags">
+                <span class="tag">FastAPI</span>
+                <span class="tag">Python</span>
+                <span class="tag">Backend</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html> -->
