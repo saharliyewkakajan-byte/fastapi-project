@@ -1,13 +1,9 @@
+import os
+
 import psycopg2
 
 def get_connection():
-    return psycopg2.connect(
-        dbname="mydb",
-        user="postgres",
-        password="kakajan",
-        host="localhost",
-        port="5432"
-    )
+    return psycopg2.connect(os.environ["DATABASE_URL"])
 conn = get_connection()
 
 cur = conn.cursor()
